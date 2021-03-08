@@ -35,6 +35,18 @@ git clone https://github.com/thewaverguy/wacy.git
 cd wacy
 python3 -m venv venv
 venv/bin/pip install -r requirements.txt
+```
+
+* Download spaCy models
+
+```bash
+venv/bin/python -m spacy download en_core_web_sm
+venv/bin/python -m spacy download en_core_web_md
+```
+
+* Run WaCy app
+
+```bash
 venv/bin/wave run apps.01_base
 ```
 
