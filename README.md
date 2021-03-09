@@ -10,7 +10,7 @@ For **Linux**:
 ```bash
 wget https://github.com/h2oai/wave/releases/download/v0.13.0/wave-0.13.0-linux-amd64.tar.gz
 tar -xvzf wave-0.13.0-linux-amd64.tar.gz
-cd wave-0.13.0-linux-amd64.tar.gz
+cd wave-0.13.0-linux-amd64
 ./waved
 ```
 
