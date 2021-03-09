@@ -132,4 +132,7 @@ dmypy.json
 #idea/
 
 # Wave
-#h2o_wave.state
+h2o_wave.state
+
+# Mac
+.DS_Store
