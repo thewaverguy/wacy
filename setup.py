@@ -4,7 +4,7 @@ with open('VERSION.txt', 'r') as f:
     version = f.read()
 
 with open('README.md', 'r') as f:
-    long_description = f.readlines()
+    long_description = f.read()
 
 setuptools.setup(
     name='wacy',
