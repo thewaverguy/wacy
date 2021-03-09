@@ -1,5 +1,5 @@
-import spacy
 from h2o_wave import Q, ui, copy_expando
+from spacy import load as spacyload
 
 from wacy.cards import InputModelCard, InputTextCard, DependencySettingsCard, DependencyVisualizerCard
 from wacy.utils import defaults
@@ -86,7 +86,7 @@ class BaseApp:
 
     @staticmethod
     async def _load_model(q: Q):
-        q.client.model = spacy.load(q.client.input_model)
+        q.client.model = spacyload(q.client.input_model)
 
     async def _process_text(self, q: Q):
         q.client.doc = q.client.model(q.client.input_text)
