@@ -12,12 +12,33 @@ Powering spaCy with Wave.
 
 * [Installation](#Installation)
 * [Usage](#Usage)
+* [Setup](#Setup)
 * [License](#License)
 * [Credits](#Credits)
 
-## Installation
+## 🚀 Installation
 
-* Download and run the [H2O Wave server](https://github.com/h2oai/wave/releases).
+**Python 3.7 or higher is required**
+
+To install stable version from [PyPI](https://pypi.org/project/wacy/) (recommended):
+
+```bash
+pip install wacy
+```
+
+To install development version:
+
+```bash
+$ git clone https://github.com/thewaverguy/wacy
+$ cd wacy
+$ python3 -m pip install -r requirements.txt
+```
+
+## 💻 Setup
+
+#### Wave
+
+Download and run the [H2O Wave server](https://github.com/h2oai/wave/releases) (latest version recommended):
 
 For **Linux**:
 
@@ -37,7 +58,7 @@ cd wave-0.13.0-darwin-amd64
 ./waved
 ```
 
-You should see an output like:
+You should see the Wave server running:
 
 ```bash
 #
@@ -49,31 +70,21 @@ You should see an output like:
 #
 ```
 
-* Install the WaCy package
+#### spaCy
 
-From **PyPI**:
-
-```bash
-pip install wacy
-```
-
-From **GitHub**:
-
-```bash
-git clone https://github.com/thewaverguy/wacy.git
-cd wacy
-python3 -m venv venv
-venv/bin/pip install -r requirements.txt
-```
-
-* Download spaCy models
+Download [spaCy models](https://spacy.io/usage/models)
 
 ```bash
 venv/bin/python -m spacy download en_core_web_sm
 venv/bin/python -m spacy download en_core_web_md
+...
 ```
 
-## Usage
+The above two models are required to run the sample app.
+
+You can also download more / other models and configure the app accordingly.
+
+## ⌨️ Usage
 Create a file for the Wave app:
 
 ```python
@@ -92,11 +103,11 @@ Run the app: `venv/bin/wave run wave_app.py`
 
 The app will be available on [http://localhost:10101/wacy](http://localhost:10101/wacy)
 
-## License
+## 📋 License
 
 This project is licensed under the [Apache License 2.0](LICENSE)
 
-## Credits
+## 🙏 Credits
 
 spaCy: [https://spacy.io/](https://h2oai.github.io/wave/)   
 Wave: [https://h2oai.github.io/wave/](https://h2oai.github.io/wave/)
