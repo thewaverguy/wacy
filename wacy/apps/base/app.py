@@ -1,8 +1,12 @@
 from h2o_wave import Q, ui, copy_expando
 from spacy import load as spacyload
 
-from wacy.cards import InputModelCard, InputTextCard, DependencySettingsCard, DependencyVisualizerCard
-from wacy.utils import defaults
+from ...cards import (
+    InputModelCard, InputTextCard,
+    DependencySettingsCard, DependencyVisualizerCard,
+    EntitySettingsCard, EntityVisualizerCard
+)
+from ...utils import defaults
 
 
 class BaseApp:
@@ -13,6 +17,8 @@ class BaseApp:
     _INPUT_TEXT_CARD = InputTextCard()
     _DEPENDENCY_SETTINGS_CARD = DependencySettingsCard()
     _DEPENDENCY_VISUALIZER_CARD = DependencyVisualizerCard()
+    _ENTITY_SETTINGS_CARD = EntitySettingsCard()
+    _ENTITY_VISUALIZER_CARD = EntityVisualizerCard()
 
     def __init__(
         self,
@@ -22,7 +28,9 @@ class BaseApp:
         input_model_card: InputModelCard = None,
         input_text_card: InputTextCard = None,
         dependency_settings_card: DependencySettingsCard = None,
-        dependency_visualizer_card: DependencyVisualizerCard = None
+        dependency_visualizer_card: DependencyVisualizerCard = None,
+        entity_settings_card: EntitySettingsCard = None,
+        entity_visualizer_card: EntityVisualizerCard = None
     ):
         self.meta_card = meta_card if meta_card is not None else self._META_CARD
         self.header_card = header_card if header_card is not None else self._HEADER_CARD
@@ -33,6 +41,10 @@ class BaseApp:
             self._DEPENDENCY_SETTINGS_CARD
         self.dependency_visualizer_card = dependency_visualizer_card if dependency_visualizer_card is not None else \
             self._DEPENDENCY_VISUALIZER_CARD
+        self.entity_settings_card = entity_settings_card if entity_settings_card is not None else \
+            self._ENTITY_SETTINGS_CARD
+        self.entity_visualizer_card = entity_visualizer_card if entity_visualizer_card is not None else \
+            self._ENTITY_VISUALIZER_CARD
 
     async def serve(self, q: Q) -> None:
         if not q.client.client_initialized:
@@ -52,6 +64,9 @@ class BaseApp:
                   q.args.arrow_width, q.args.arrow_spacing, q.args.word_spacing, q.args.word_distance]):
             copy_expando(q.args, q.client)
             await self._update_dependency_cards(q)
+        elif q.args.select_ents:
+            copy_expando(q.args, q.client)
+            await self._update_entity_cards(q)
 
     async def _initialize_client(self, q: Q):
         q.client.input_models = self.input_model_card.input_models
@@ -82,19 +97,24 @@ class BaseApp:
         q.client.word_spacing = self.dependency_settings_card.word_spacing
         q.client.word_distance = self.dependency_settings_card.word_distance
 
+        q.client.select_ents = self.entity_settings_card.select_ents
+
         await self._update_all_cards(q)
 
-    @staticmethod
-    async def _load_model(q: Q):
+    async def _load_model(self, q: Q):
         q.client.model = spacyload(q.client.input_model)
+        self.entity_settings_card.choice_ents = list(q.client.model.get_pipe('ner').labels)
+        self.entity_settings_card.select_ents = list(q.client.model.get_pipe('ner').labels)
 
     async def _process_text(self, q: Q):
         q.client.doc = q.client.model(q.client.input_text)
         self.dependency_visualizer_card.doc = q.client.doc
+        self.entity_visualizer_card.doc = q.client.doc
 
     async def _update_all_cards(self, q: Q):
         await self._update_input_cards(q)
         await self._update_dependency_cards(q)
+        await self._update_entity_cards(q)
 
         await q.page.save()
 
@@ -124,3 +144,10 @@ class BaseApp:
 
         self.dependency_visualizer_card.options = self.dependency_settings_card.to_displacy_options()
         await self.dependency_visualizer_card.render(q)
+
+    async def _update_entity_cards(self, q: Q):
+        self.entity_settings_card.select_ents = q.client.select_ents
+        await self.entity_settings_card.render(q)
+
+        self.entity_visualizer_card.options = self.entity_settings_card.to_displacy_options()
+        await self.entity_visualizer_card.render(q)

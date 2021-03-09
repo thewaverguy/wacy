@@ -73,15 +73,17 @@ class DependencySettingsCard(BaseCard):
             items=[
                 ui.toggle(name='fine_grained', label='Fine Grained', value=self.fine_grained, trigger=True),
                 ui.toggle(name='add_lemma', label='Add Lemma', value=self.add_lemma, trigger=True),
-                ui.toggle(name='collapse_punct', label='Collapse Punctuation', value=self.collapse_punct, trigger=True),
-                ui.toggle(name='collapse_phrases', label='Collapse Phrases', value=self.collapse_phrases, trigger=True),
+                ui.toggle(name='collapse_punct', label='Merge Punctuation', value=self.collapse_punct, trigger=True),
+                ui.toggle(name='collapse_phrases', label='Merge Phrases', value=self.collapse_phrases, trigger=True),
                 ui.toggle(name='compact', label='Compact', value=self.compact, trigger=True),
                 ui.inline(items=[
                     ui.textbox(name='color', label='Visualizer Color', value=self.color, trigger=True),
                     ui.textbox(name='bg', label='Background Color', value=self.bg, trigger=True)
                 ]),
-                ui.textbox(name='font', label='Font', value=self.font, trigger=True),
-                ui.textbox(name='offset_x', label='Offset-X', value=str(self.offset_x), trigger=True),
+                ui.inline(items=[
+                    ui.textbox(name='font', label='Font', value=self.font, trigger=True),
+                    ui.textbox(name='offset_x', label='Offset-X', value=str(self.offset_x), trigger=True)
+                ]),
                 ui.inline(items=[
                     ui.textbox(
                         name='arrow_stroke',
@@ -129,7 +131,6 @@ class DependencySettingsCard(BaseCard):
         q.page[self.name] = card
 
 
-# noinspection PyUnresolvedReferences
 class DependencyVisualizerCard(BaseCard):
     def __init__(
         self,

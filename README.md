@@ -1,18 +1,20 @@
 # WaCy
-Powering spaCy with Wave.
+Powering spaCy with Wave
 <p>
   <img alt="License" src="https://img.shields.io/github/license/vopani/pychesscom?color=blue">
-  <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/wacy?color=orange">
-  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/wacy?label=pypi&color=green">
-  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/wacy?color=yellow">
+  <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/wacy?color=yellow">
+  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi">
+  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/thewaverguy">
 </p>
+
+Building blocks for interactive and customizable [spaCy](http://spacy.io)-powered apps with [Wave](https://h2oai.github.io/wave)
 
 ## Index
 
 * [Installation](#Installation)
-* [Usage](#Usage)
 * [Setup](#Setup)
+* [Usage](#Usage)
 * [License](#License)
 * [Credits](#Credits)
 
@@ -20,7 +22,7 @@ Powering spaCy with Wave.
 
 **Python 3.7 or higher is required**
 
-To install stable version from [PyPI](https://pypi.org/project/wacy/) (recommended):
+To install stable version from [PyPI](https://pypi.org/project/wacy) (recommended):
 
 ```bash
 pip install wacy
@@ -38,7 +40,7 @@ $ python3 -m pip install -r requirements.txt
 
 #### Wave
 
-Download and run the [H2O Wave server](https://github.com/h2oai/wave/releases) (latest version recommended):
+Download and run the [Wave server](https://github.com/h2oai/wave/releases) (latest version recommended):
 
 For **Linux**:
 
@@ -80,7 +82,7 @@ venv/bin/python -m spacy download en_core_web_md
 ...
 ```
 
-The above two models are required to run the sample app.
+The above two models are required to run the sample base app.
 
 You can also download more / other models and configure the app accordingly.
 
@@ -109,5 +111,5 @@ This project is licensed under the [Apache License 2.0](LICENSE)
 
 ## 🙏 Credits
 
-spaCy: [https://spacy.io/](https://h2oai.github.io/wave/)   
-Wave: [https://h2oai.github.io/wave/](https://h2oai.github.io/wave/)
+spaCy: [https://spacy.io/](https://h2oai.github.io/wave)   
+Wave: [https://h2oai.github.io/wave/](https://h2oai.github.io/wave)

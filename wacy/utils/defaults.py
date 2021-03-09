@@ -20,6 +20,10 @@ META_CARD = ui.meta_card(
                     ui.zone(name='dependency_row', direction='row', zones=[
                         ui.zone(name='dependency_settings', size='30%'),
                         ui.zone(name='dependency_visualizer', size='70%')
+                    ]),
+                    ui.zone(name='entity_row', direction='row', zones=[
+                        ui.zone(name='entity_settings', size='30%'),
+                        ui.zone(name='entity_visualizer', size='70%')
                     ])
                 ]),
                 ui.zone(name='footer')
