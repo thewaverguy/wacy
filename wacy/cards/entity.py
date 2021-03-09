@@ -9,6 +9,9 @@ from .base import BaseCard
 
 
 class EntitySettingsCard(BaseCard):
+    """
+    Card for handling settings of spaCy's entity visualizer.
+    """
     def __init__(
         self,
         name: str = 'entity_settings',
@@ -18,6 +21,17 @@ class EntitySettingsCard(BaseCard):
         title: str = 'Entity Settings',
         commands: List[Command] = None
     ):
+        """
+        Class initialization.
+
+        Args:
+            name: Name of card
+            box: Box of card
+            choice_ents: List of entity choices
+            select_ents: List of selected entities
+            title: Title of card
+            commands: Commands of card
+        """
         super().__init__(name, box)
 
         self.choice_ents = choice_ents
@@ -26,11 +40,23 @@ class EntitySettingsCard(BaseCard):
         self.commands = commands
 
     def to_displacy_options(self):
+        """
+        Get spaCy displacy's options.
+
+        Returns:
+            dict: Dictionary of displacy options
+        """
         return {
             'ents': self.select_ents
         }
 
     async def render(self, q: Q):
+        """
+        Render card in Wave.
+
+        Args:
+            q: Wave server
+        """
         entity_choices = [ui.choice(name=str(x), label=str(x)) for x in self.choice_ents]
 
         card = ui.form_card(
@@ -52,6 +78,9 @@ class EntitySettingsCard(BaseCard):
 
 
 class EntityVisualizerCard(BaseCard):
+    """
+    Card for handling visualization of spaCy's entity visualizer.
+    """
     def __init__(
         self,
         name: str = 'entity_visualizer',
@@ -61,6 +90,17 @@ class EntityVisualizerCard(BaseCard):
         title: str = 'Entity Visualizer',
         commands: List[Command] = None
     ):
+        """
+        Class initialization.
+
+        Args:
+            name: Name of card
+            box: Box of card
+            doc: spaCy's Doc object of text
+            options: Displacy options
+            title: Title of card
+            commands: Commands of card
+        """
         super().__init__(name, box)
 
         self.doc = doc
@@ -69,6 +109,12 @@ class EntityVisualizerCard(BaseCard):
         self.commands = commands
 
     async def render(self, q: Q):
+        """
+        Render card in Wave.
+
+        Args:
+            q: Wave server
+        """
         dependency_html = displacy.render(self.doc, style='ent', options=self.options)
 
         card = ui.form_card(

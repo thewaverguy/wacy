@@ -1,10 +1,10 @@
 # WaCy
 Powering spaCy with Wave
 <p>
-  <img alt="License" src="https://img.shields.io/github/license/vopani/pychesscom?color=blue">
   <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/wacy?color=yellow">
   <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi">
   <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python">
+  <img alt="License" src="https://img.shields.io/github/license/vopani/pychesscom?color=blue">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/thewaverguy">
 </p>
 
@@ -42,7 +42,7 @@ $ python3 -m pip install -r requirements.txt
 
 Download and run the [Wave server](https://github.com/h2oai/wave/releases) (latest version recommended):
 
-For **Linux**:
+On **Linux**:
 
 ```bash
 wget https://github.com/h2oai/wave/releases/download/v0.13.0/wave-0.13.0-linux-amd64.tar.gz
@@ -51,7 +51,7 @@ cd wave-0.13.0-linux-amd64
 ./waved
 ```
 
-For **Mac**:
+On **Mac**:
 
 ```bash
 wget https://github.com/h2oai/wave/releases/download/v0.13.0/wave-0.13.0-darwin-amd64.tar.gz

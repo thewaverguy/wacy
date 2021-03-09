@@ -9,6 +9,9 @@ from .base import BaseCard
 
 
 class DependencySettingsCard(BaseCard):
+    """
+    Card for handling settings of spaCy's dependency visualizer.
+    """
     def __init__(
         self,
         name: str = 'dependency_settings',
@@ -30,6 +33,29 @@ class DependencySettingsCard(BaseCard):
         title: str = 'Dependency Settings',
         commands: List[Command] = None
     ):
+        """
+        Class initialization.
+
+        Args:
+            name: Name of card
+            box: Box of card
+            fine_grained: Use fine-grained part-of-speech tags instead of coarse-grained tags
+            add_lemma: Print the lemmas in a separate row below the token texts
+            collapse_punct: Merge punctuation to tokens
+            collapse_phrases: Merge noun phrases into one token
+            compact: Use square arrows that takes up less space
+            color: Text color (HEX, RGB or color names)
+            bg: Background color (HEX, RGB or color names)
+            font: Font name or font family for all text
+            offset_x: Spacing on left side of the SVG in px
+            arrow_stroke: Width of arrow path in px
+            arrow_width: Width of arrow head in px
+            arrow_spacing: Spacing between arrows in px
+            word_spacing: Vertical spacing between words and arcs in px
+            word_distance: Distance between words in px
+            title: Title of card
+            commands: Commands of card
+        """
         super().__init__(name, box)
 
         self.fine_grained = fine_grained
@@ -50,6 +76,12 @@ class DependencySettingsCard(BaseCard):
         self.commands = commands
 
     def to_displacy_options(self):
+        """
+        Get spaCy displacy's options.
+
+        Returns:
+            dict: Dictionary of displacy options
+        """
         return {
             'fine_grained': self.fine_grained,
             'add_lemma': self.add_lemma,
@@ -68,6 +100,12 @@ class DependencySettingsCard(BaseCard):
         }
 
     async def render(self, q: Q):
+        """
+        Render card in Wave.
+
+        Args:
+            q: Wave server
+        """
         card = ui.form_card(
             box=self.box,
             items=[
@@ -132,6 +170,9 @@ class DependencySettingsCard(BaseCard):
 
 
 class DependencyVisualizerCard(BaseCard):
+    """
+    Card for handling visualization of spaCy's dependency visualizer.
+    """
     def __init__(
         self,
         name: str = 'dependency_visualizer',
@@ -141,6 +182,17 @@ class DependencyVisualizerCard(BaseCard):
         title: str = 'Dependency Visualizer',
         commands: List[Command] = None
     ):
+        """
+        Class initialization.
+
+        Args:
+            name: Name of card
+            box: Box of card
+            doc: spaCy's Doc object of text
+            options: Displacy options
+            title: Title of card
+            commands: Commands of card
+        """
         super().__init__(name, box)
 
         self.doc = doc
@@ -149,6 +201,12 @@ class DependencyVisualizerCard(BaseCard):
         self.commands = commands
 
     async def render(self, q: Q):
+        """
+        Render card in Wave.
+
+        Args:
+            q: Wave server
+        """
         dependency_html = displacy.render(self.doc, style='dep', options=self.options)
 
         card = ui.form_card(
