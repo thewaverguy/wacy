@@ -18,7 +18,7 @@ setuptools.setup(
     project_urls={
         'Documentation': 'https://wacy.readthedocs.io',
         'Source': 'https://github.com/thewaverguy/wacy',
-        'Tracker': 'https://github.com/thewaverguy/wacy'
+        'Tracker': 'https://github.com/thewaverguy/wacy/issues'
     },
     python_requires='>=3.7',
     install_requires=[
