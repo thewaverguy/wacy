@@ -4,6 +4,7 @@ Powering spaCy with Wave
   <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/wacy?color=yellow">
   <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi">
   <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python">
+  <img src='https://readthedocs.org/projects/wacy/badge/?version=latest' alt='Documentation Status' />
   <img alt="License" src="https://img.shields.io/github/license/vopani/pychesscom?color=blue">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/thewaverguy">
 </p>
@@ -15,6 +16,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 * [Installation](#Installation)
 * [Setup](#Setup)
 * [Usage](#Usage)
+* [Documentation](#Documentation)
 * [License](#License)
 * [Credits](#Credits)
 
@@ -104,6 +106,10 @@ async def serve(q: Q):
 Run the app: `venv/bin/wave run wave_app.py`
 
 The app will be available on [http://localhost:10101/wacy](http://localhost:10101/wacy)
+
+## 📖 Documentation
+
+Documentation: [https://wacy.readthedocs.io](https://wacy.readthedocs.io)
 
 ## 📋 License
 

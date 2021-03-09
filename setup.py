@@ -16,6 +16,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url='https://github.com/thewaverguy/wacy',
     project_urls={
+        'Documentation': 'https://wacy.readthedocs.io',
         'Source': 'https://github.com/thewaverguy/wacy',
         'Tracker': 'https://github.com/thewaverguy/wacy'
     },
