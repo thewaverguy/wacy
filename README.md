@@ -1,8 +1,8 @@
+<center>
+
 <img src="docs/source/_static/logo/logo_horizontal_light_450_x_150.svg">
 
-<p align='center'>
-	Powering spaCy with Wave
-</p>
+Powering spaCy with Wave
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python)](https://pypi.org/project/wacy)
 [![PyPI Status](https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi)](https://pypi.org/project/wacy)
@@ -12,14 +12,13 @@
 
 Building blocks for interactive and customizable [spaCy](http://spacy.io)-powered apps with [Wave](https://h2oai.github.io/wave)
 
-## Index
+---
 
-* [Installation](#Installation)
-* [Setup](#Setup)
-* [Usage](#Usage)
-* [Documentation](#Documentation)
-* [License](#License)
-* [Credits](#Credits)
+[Installation](#Installation) • [Setup](#Setup) • [Usage](#Usage) • [Documentation](#Documentation) • [License](#License) • [Credits](#Credits)
+
+---
+
+</center>
 
 ## 🚀 Installation
 
@@ -110,7 +109,8 @@ The app will be available on [http://localhost:10101/wacy](http://localhost:1010
 
 ## 📖 Documentation
 
-Documentation: [https://wacy.readthedocs.io](https://wacy.readthedocs.io)
+Documentation: [https://wacy.readthedocs.io](https://wacy.readthedocs.io)   
+Examples: [https://wacy.readthedocs.io/en/latest/examples.html](https://wacy.readthedocs.io/en/latest/examples.html)
 
 ## 📋 License
 
