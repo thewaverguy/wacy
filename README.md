@@ -1,4 +1,4 @@
-<center>
+<div align='center'>
 
 <img src="docs/source/_static/logo/logo_horizontal_light_450_x_150.svg">
 
@@ -18,7 +18,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 ---
 
-</center>
+</div>
 
 ## 🚀 Installation
 
