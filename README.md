@@ -1,4 +1,4 @@
-<img src="docs/_static/logo/logo_horizontal_light_450_x_150.svg">
+<img src="docs/source/_static/logo/logo_horizontal_light_450_x_150.svg">
 
 <p align='center'>
 	Powering spaCy with Wave
