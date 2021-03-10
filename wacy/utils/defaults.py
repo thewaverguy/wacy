@@ -32,14 +32,16 @@ META_CARD = ui.meta_card(
                 ui.zone(name='footer')
             ]
         )
-    ]
+    ],
+    theme='light'
 )
 
 HEADER_CARD = ui.header_card(
     box='header',
     title='WaCy',
     subtitle='Powering spaCy with Wave',
-    icon='WavingHand'
+    icon='WavingHand',
+    icon_color='mediumseagreen'
 )
 
 FOOTER_CARD = ui.footer_card(
@@ -47,5 +49,5 @@ FOOTER_CARD = ui.footer_card(
     caption='(c) 2021 <b>TheWaverGuy</b> - <i>Data is bulletproof</i>'
 )
 
-TOKEN_ATTRIBUTES = ['idx', 'text', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'morph', 'lemma_', 'norm_',
-                    'is_alpha', 'is_ascii', 'is_digit', 'is_lower', 'is_upper', 'is_title', 'is_punct']
+TOKEN_ATTRIBUTES = ['idx', 'text', 'lemma_', 'norm_', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'is_alpha',
+                    'is_ascii', 'is_digit', 'is_lower', 'is_upper', 'is_title', 'is_punct', 'morph']

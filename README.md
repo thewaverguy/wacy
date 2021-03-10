@@ -1,6 +1,6 @@
 <div align='center'>
 
-<img src="docs/source/_static/logo/logo_horizontal_light_450_x_150.svg">
+<img src='docs/source/_static/logo/logo_horizontal_light_450_x_150.svg'>
 
 Powering spaCy with Wave
 
@@ -14,7 +14,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 ---
 
-[Installation](#Installation) • [Setup](#Setup) • [Usage](#Usage) • [Documentation](#Documentation) • [License](#License) • [Credits](#Credits)
+[Installation](#-installation) • [Setup](#-setup) • [Usage](-usage) • [Documentation](#-documentation) • [License](#-license) • [Credits](#-credits)
 
 ---
 
@@ -22,7 +22,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 ## 🚀 Installation
 
-**Python 3.7 or higher is required**
+**Python 3.6+ is required**
 
 To install stable version from [PyPI](https://pypi.org/project/wacy) (recommended):
 
@@ -88,7 +88,7 @@ The above two models are required to run the sample base app.
 
 You can also download more / other models and configure the app accordingly.
 
-## ⌨️ Usage
+## 🛠️ Usage
 Create a file for the Wave app:
 
 ```python

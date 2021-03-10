@@ -1,6 +1,6 @@
 Installation
 ============
-**Python 3.7 or higher is required**
+**Python 3.6+ is required**
 
 To install stable version from PyPI (recommended):
 
