@@ -1,6 +1,8 @@
-![](docs/static/logo_horizontal_450_x_150.svg)
+<img src="docs/_static/logo/logo_horizontal_light_450_x_150.svg">
 
-<p align='center'>Powering spaCy with Wave</p>
+<p align='center'>
+	Powering spaCy with Wave
+</p>
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python)](https://pypi.org/project/wacy)
 [![PyPI Status](https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi)](https://pypi.org/project/wacy)
