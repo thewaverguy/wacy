@@ -1,13 +1,12 @@
-# WaCy
-Powering spaCy with Wave
-<p>
-  <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/wacy?color=yellow">
-  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi">
-  <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python">
-  <img src='https://readthedocs.org/projects/wacy/badge/?version=latest' alt='Documentation Status' />
-  <img alt="License" src="https://img.shields.io/github/license/vopani/pychesscom?color=blue">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/thewaverguy">
-</p>
+![](docs/static/logo_horizontal_450_x_150.svg)
+
+<p align='center'>Powering spaCy with Wave</p>
+
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python)](https://pypi.org/project/wacy)
+[![PyPI Status](https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi)](https://pypi.org/project/wacy)
+[![PyPI Status](https://pepy.tech/badge/wacy?rightcolor=yellowgreen)](https://pepy.tech/project/wacy)
+[![ReadTheDocs](https://readthedocs.org/projects/wacy/badge/?version=stable)](https://wacy.readthedocs.io/en/stable)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/thewaverguy/wacy/blob/master/LICENSE)
 
 Building blocks for interactive and customizable [spaCy](http://spacy.io)-powered apps with [Wave](https://h2oai.github.io/wave)
 

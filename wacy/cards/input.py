@@ -9,7 +9,7 @@ from ..utils import defaults
 
 class InputModelCard(BaseCard):
     """
-    Class for handling spaCy model selection.
+    Card for handling spaCy model selection.
     """
     def __init__(
         self,
@@ -17,7 +17,8 @@ class InputModelCard(BaseCard):
         box: str = 'input_model',
         input_models: List[str] = None,
         input_model: str = defaults.INPUT_MODEL,
-        title: str = None,
+        title: str = defaults.INPUT_TITLE,
+        subtitle: str = defaults.INPUT_SUBTITLE,
         commands: List[Command] = None
     ):
         """
@@ -29,6 +30,7 @@ class InputModelCard(BaseCard):
             input_models: List of available spaCy models
             input_model: Selected spaCy model
             title: Title of card
+            subtitle: Subtitle of card
             commands: Commands of card
         """
         super().__init__(name, box)
@@ -36,6 +38,7 @@ class InputModelCard(BaseCard):
         self.input_models = input_models if input_models is not None else defaults.INPUT_MODELS
         self.input_model = input_model
         self.title = title
+        self.subtitle = subtitle
         self.commands = commands
 
     async def render(self, q: Q):
@@ -47,8 +50,10 @@ class InputModelCard(BaseCard):
         """
         model_choices = [ui.choice(name=str(x), label=str(x)) for x in self.input_models]
 
-        card = ui.form_card(
+        card = ui.section_card(
             box=self.box,
+            title=self.title,
+            subtitle=self.subtitle,
             items=[
                 ui.dropdown(
                     name='input_model',
@@ -58,7 +63,6 @@ class InputModelCard(BaseCard):
                     trigger=True
                 )
             ],
-            title=self.title,
             commands=self.commands
         )
 
@@ -67,7 +71,7 @@ class InputModelCard(BaseCard):
 
 class InputTextCard(BaseCard):
     """
-    Class for handling text to analyze.
+    Card for handling text to analyze.
     """
     def __init__(
         self,
@@ -103,7 +107,7 @@ class InputTextCard(BaseCard):
         card = ui.form_card(
             box=self.box,
             items=[
-                ui.textbox(name='input_text', label='Enter text to analyze', value=self.input_text, multiline=True),
+                ui.textbox(name='input_text', label='Enter text', value=self.input_text, multiline=True),
                 ui.button(name='analyze_text', label='Analyze', primary=True)
             ],
             title=self.title,

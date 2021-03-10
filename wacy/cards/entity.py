@@ -1,9 +1,9 @@
 from typing import List
 
-import spacy
-from spacy import displacy
 from h2o_wave import Q, ui
 from h2o_wave.ui import Command
+from spacy import displacy
+from spacy.tokens import Doc
 
 from .base import BaseCard
 
@@ -85,7 +85,7 @@ class EntityVisualizerCard(BaseCard):
         self,
         name: str = 'entity_visualizer',
         box: str = 'entity_visualizer',
-        doc: spacy.tokens.Doc = None,
+        doc: Doc = None,
         options: dict = None,
         title: str = 'Entity Visualizer',
         commands: List[Command] = None

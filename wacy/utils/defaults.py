@@ -2,7 +2,9 @@ from h2o_wave import ui
 
 INPUT_MODELS = ['en_core_web_sm', 'en_core_web_md']
 INPUT_MODEL = 'en_core_web_sm'
-INPUT_TEXT = 'Matthew Honnibal and Ines Montani are the founders of Explosion'
+INPUT_TITLE = 'Simple, Quick and Interactive'
+INPUT_SUBTITLE = 'Select a spaCy model and enter the text to analyze'
+INPUT_TEXT = 'Matthew Honnibal and Ines Montani are the founders of Explosion.'
 
 META_CARD = ui.meta_card(
     box='',
@@ -13,18 +15,19 @@ META_CARD = ui.meta_card(
             zones=[
                 ui.zone(name='header'),
                 ui.zone(name='main', zones=[
-                    ui.zone(name='input_row', direction='row', zones=[
-                        ui.zone(name='input_model', size='30%'),
-                        ui.zone(name='input_text', size='70%')
+                    ui.zone(name='input_row', zones=[
+                        ui.zone(name='input_model'),
+                        ui.zone(name='input_text')
+                    ]),
+                    ui.zone(name='entity_row', direction='row', zones=[
+                        ui.zone(name='entity_settings', size='30%'),
+                        ui.zone(name='entity_visualizer', size='70%')
                     ]),
                     ui.zone(name='dependency_row', direction='row', zones=[
                         ui.zone(name='dependency_settings', size='30%'),
                         ui.zone(name='dependency_visualizer', size='70%')
                     ]),
-                    ui.zone(name='entity_row', direction='row', zones=[
-                        ui.zone(name='entity_settings', size='30%'),
-                        ui.zone(name='entity_visualizer', size='70%')
-                    ])
+                    ui.zone(name='token_attributes')
                 ]),
                 ui.zone(name='footer')
             ]
@@ -43,3 +46,6 @@ FOOTER_CARD = ui.footer_card(
     box='footer',
     caption='(c) 2021 <b>TheWaverGuy</b> - <i>Data is bulletproof</i>'
 )
+
+TOKEN_ATTRIBUTES = ['idx', 'text', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'morph', 'lemma_', 'norm_',
+                    'is_alpha', 'is_ascii', 'is_digit', 'is_lower', 'is_upper', 'is_title', 'is_punct']

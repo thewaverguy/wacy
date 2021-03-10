@@ -1,9 +1,9 @@
 from typing import List
 
-import spacy
-from spacy import displacy
 from h2o_wave import Q, ui
 from h2o_wave.ui import Command
+from spacy import displacy
+from spacy.tokens import Doc
 
 from .base import BaseCard
 
@@ -177,7 +177,7 @@ class DependencyVisualizerCard(BaseCard):
         self,
         name: str = 'dependency_visualizer',
         box: str = 'dependency_visualizer',
-        doc: spacy.tokens.Doc = None,
+        doc: Doc = None,
         options: dict = None,
         title: str = 'Dependency Visualizer',
         commands: List[Command] = None
