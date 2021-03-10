@@ -9,6 +9,7 @@ INPUT_TEXT = 'Matthew Honnibal and Ines Montani are the founders of Explosion.'
 META_CARD = ui.meta_card(
     box='',
     title='WaCy',
+    icon='https://raw.githubusercontent.com/thewaverguy/wacy/main/docs/source/_static/logo/logo_light_250_x_250.svg',
     layouts=[
         ui.layout(
             breakpoint='xs',
@@ -46,7 +47,7 @@ HEADER_CARD = ui.header_card(
 
 FOOTER_CARD = ui.footer_card(
     box='footer',
-    caption='(c) 2021 <b>TheWaverGuy</b> - <i>Data is bulletproof</i>'
+    caption='(c) 2021 👋 <b>TheWaverGuy</b> - <i>Data is bulletproof</i>'
 )
 
 TOKEN_ATTRIBUTES = ['idx', 'text', 'lemma_', 'norm_', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'is_alpha',

@@ -14,7 +14,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 ---
 
-[Installation](#-installation) • [Setup](#-setup) • [Usage](-usage) • [Documentation](#-documentation) • [License](#-license) • [Credits](#-credits)
+[Installation](#-installation) • [Setup](#-setup) • [Usage](#%EF%B8%8F-usage) • [Documentation](#-documentation) • [License](#-license) • [Credits](#-credits)
 
 ---
 

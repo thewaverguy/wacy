@@ -8,11 +8,11 @@ long_description.replace(
     'https://raw.githubusercontent.com/thewaverguy/wacy/main/docs/source/_static'
 )
 long_description.replace(
-    '[Installation](#-installation) • [Setup](#-setup) • [Usage](#-usage) • [Documentation](#-documentation) •',
+    '[Installation](#-installation) • [Setup](#-setup) • [Usage](#%EF%B8%8F-usage) • [Documentation](#-documentation)',
     ''
 )
 long_description.replace(
-    '[License](#-license) • [Credits](#-credits)',
+    ' • [License](#-license) • [Credits](#-credits)',
     ''
 )
 
