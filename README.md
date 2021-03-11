@@ -5,10 +5,11 @@
 Powering spaCy with Wave
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python)](https://pypi.org/project/wacy)
-[![PyPI Status](https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi)](https://pypi.org/project/wacy)
+[![PyPI Status](https://img.shields.io/pypi/v/wacy?label=pypi&color=yellow&logo=pypi)](https://pypi.org/project/wacy)
 [![PyPI Status](https://pepy.tech/badge/wacy?rightcolor=yellowgreen)](https://pepy.tech/project/wacy)
 [![ReadTheDocs](https://readthedocs.org/projects/wacy/badge/?version=stable)](https://wacy.readthedocs.io/en/stable)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/thewaverguy/wacy/blob/master/LICENSE)
+[![GitHub Repo stars](https://img.shields.io/github/stars/thewaverguy/wacy?color=orange&logo=github&style=plastic)](https://github.com/thewaverguy/wacy)
 
 Building blocks for interactive and customizable [spaCy](http://spacy.io)-powered apps with [Wave](https://h2oai.github.io/wave)
 
