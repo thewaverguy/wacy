@@ -22,7 +22,7 @@ Run the app:
 
 .. code-block:: bash
 
-    $ venv/bin/wave run wave_app.py
+    $ wave run wave_app.py
 
 The app will be available on http://localhost:10101/wacy
 
