@@ -29,7 +29,7 @@ To install stable version from [PyPI](https://pypi.org/project/wacy) (recommende
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install pip setuptools wheel
+pip install --upgrade pip setuptools wheel
 pip install wacy
 ```
 
@@ -40,7 +40,7 @@ git clone https://github.com/thewaverguy/wacy
 cd wacy
 python3 -m venv venv
 source venv/bin/activate
-pip install pip setuptools wheel
+pip install --upgrade pip setuptools wheel
 python3 -m pip install -r requirements.txt
 ```
 
