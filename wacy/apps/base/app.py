@@ -87,7 +87,7 @@ class BaseApp:
         q.page['header'] = self.header_card
         q.page['footer'] = self.footer_card
 
-        q.client.select_ents = list(q.client.model.get_pipe('ner').labels)
+        q.client.select_ents = sorted(list(set([x.label_ for x in q.client.doc.ents])))
 
         q.client.fine_grained = self.dependency_settings_card.fine_grained
         q.client.add_lemma = self.dependency_settings_card.add_lemma
