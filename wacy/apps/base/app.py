@@ -87,7 +87,7 @@ class BaseApp:
         q.page['header'] = self.header_card
         q.page['footer'] = self.footer_card
 
-        q.client.select_ents = self.entity_settings_card.select_ents
+        q.client.select_ents = list(q.client.model.get_pipe('ner').labels)
 
         q.client.fine_grained = self.dependency_settings_card.fine_grained
         q.client.add_lemma = self.dependency_settings_card.add_lemma
@@ -131,7 +131,7 @@ class BaseApp:
 
     async def _update_entity_cards(self, q: Q):
         self.entity_settings_card.choice_ents = list(q.client.model.get_pipe('ner').labels)
-        self.entity_settings_card.select_ents = list(q.client.model.get_pipe('ner').labels)
+        self.entity_settings_card.select_ents = q.client.select_ents
         await self.entity_settings_card.render(q)
 
         self.entity_visualizer_card.doc = q.client.doc

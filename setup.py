@@ -3,15 +3,15 @@ import setuptools
 version = open('VERSION.txt', 'r').read()
 
 long_description = open('README.md', 'r').read()
-long_description.replace(
+long_description = long_description.replace(
     'docs/source/_static',
     'https://raw.githubusercontent.com/thewaverguy/wacy/main/docs/source/_static'
 )
-long_description.replace(
+long_description = long_description.replace(
     '[Installation](#-installation) • [Setup](#-setup) • [Usage](#%EF%B8%8F-usage) • [Documentation](#-documentation)',
     ''
 )
-long_description.replace(
+long_description = long_description.replace(
     ' • [License](#-license) • [Credits](#-credits)',
     ''
 )

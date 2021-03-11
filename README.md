@@ -27,15 +27,21 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 To install stable version from [PyPI](https://pypi.org/project/wacy) (recommended):
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install pip setuptools wheel
 pip install wacy
 ```
 
 To install development version:
 
 ```bash
-$ git clone https://github.com/thewaverguy/wacy
-$ cd wacy
-$ python3 -m pip install -r requirements.txt
+git clone https://github.com/thewaverguy/wacy
+cd wacy
+python3 -m venv venv
+source venv/bin/activate
+pip install pip setuptools wheel
+python3 -m pip install -r requirements.txt
 ```
 
 ## 💻 Setup
@@ -79,8 +85,8 @@ You should see the Wave server running:
 Download [spaCy models](https://spacy.io/usage/models)
 
 ```bash
-venv/bin/python -m spacy download en_core_web_sm
-venv/bin/python -m spacy download en_core_web_md
+python3 -m spacy download en_core_web_sm
+python3 -m spacy download en_core_web_md
 ...
 ```
 
@@ -103,7 +109,7 @@ async def serve(q: Q):
     await wacy_app.serve(q)
 ```
 
-Run the app: `venv/bin/wave run wave_app.py`
+Run the app: `wave run wave_app.py`
 
 The app will be available on [http://localhost:10101/wacy](http://localhost:10101/wacy)
 
