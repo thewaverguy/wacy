@@ -5,8 +5,8 @@
 Powering spaCy with Wave
 
 [![Python Version](https://img.shields.io/pypi/pyversions/wacy?color=orange&logo=python)](https://pypi.org/project/wacy)
-[![PyPI Version](https://img.shields.io/pypi/v/wacy?label=pypi&color=yellow&logo=pypi)](https://pypi.org/project/wacy)
-[![PyPI Downloads](https://static.pepy.tech/personalized-badge/wacy?period=total&left_text=downloads&left_color=grey&right_color=yellowgreen)](https://pepy.tech/project/wacy)
+[![PyPI Version](https://img.shields.io/pypi/v/wacy?label=pypi&color=green&logo=pypi)](https://pypi.org/project/wacy)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/wacy?period=total&left_text=downloads&left_color=grey&right_color=yellow)](https://pepy.tech/project/wacy)
 [![Documentation](https://readthedocs.org/projects/wacy/badge/?version=stable)](https://wacy.readthedocs.io)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/thewaverguy/wacy/blob/master/LICENSE)
 [![GitHub](https://img.shields.io/github/stars/thewaverguy/wacy?color=yellowgreen&logo=github)](https://github.com/thewaverguy/wacy)
