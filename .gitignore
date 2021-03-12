@@ -136,4 +136,4 @@ h2o_wave.state
 wave_app.py
 
 # Mac
-.DS_Store
+#.DS_Store
