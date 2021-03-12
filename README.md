@@ -21,7 +21,7 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 </div>
 
-<img src="https://raw.githubusercontent.com/thewaverguy/wacy/main/docs/source/_static/demo/demo.gif">
+<img src='docs/source/_static/demo/demo.gif'>
 
 ## 🚀 Installation
 
