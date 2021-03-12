@@ -47,7 +47,7 @@ class TokenAttributesCard(BaseCard):
             list: List of Wave table columns
         """
         names = {
-            'idx': 'idx',
+            'i': 'id',
             'text': 'token',
             'lemma_': 'lemma',
             'norm_': 'norm',
@@ -68,7 +68,7 @@ class TokenAttributesCard(BaseCard):
         searchables = ['text', 'lemma', 'norm']
         filterables = self.token_attributes
         min_widths = {
-            'idx': '40px',
+            'i': '40px',
             'text': '80px',
             'lemma_': '80px',
             'norm_': '80px',
@@ -123,7 +123,8 @@ class TokenAttributesCard(BaseCard):
                     name='table_tokens',
                     columns=self.get_wave_table_columns(),
                     rows=self.get_wave_table_rows(),
-                    downloadable=True
+                    downloadable=True,
+                    resettable=True
                 )
             ],
             title=self.title,

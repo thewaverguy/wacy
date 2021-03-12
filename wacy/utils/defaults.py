@@ -50,5 +50,5 @@ FOOTER_CARD = ui.footer_card(
     caption='(c) 2021 👋 <b>TheWaverGuy</b> - <i>Data is bulletproof</i>'
 )
 
-TOKEN_ATTRIBUTES = ['idx', 'text', 'lemma_', 'norm_', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'is_alpha',
+TOKEN_ATTRIBUTES = ['i', 'text', 'lemma_', 'norm_', 'ent_type_', 'ent_iob_', 'pos_', 'tag_', 'dep_', 'is_alpha',
                     'is_ascii', 'is_digit', 'is_lower', 'is_upper', 'is_title', 'is_punct', 'morph']
