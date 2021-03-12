@@ -16,6 +16,7 @@ class DependencySettingsCard(BaseCard):
         self,
         name: str = 'dependency_settings',
         box: str = 'dependency_settings',
+        split_sentences: bool = False,
         fine_grained: bool = False,
         add_lemma: bool = False,
         collapse_punct: bool = True,
@@ -39,6 +40,7 @@ class DependencySettingsCard(BaseCard):
         Args:
             name: Name of card
             box: Box of card
+            split_sentences: Split by sentences
             fine_grained: Use fine-grained part-of-speech tags instead of coarse-grained tags
             add_lemma: Print the lemmas in a separate row below the token texts
             collapse_punct: Merge punctuation to tokens
@@ -58,6 +60,7 @@ class DependencySettingsCard(BaseCard):
         """
         super().__init__(name, box)
 
+        self.split_sentences = split_sentences
         self.fine_grained = fine_grained
         self.add_lemma = add_lemma
         self.collapse_punct = collapse_punct
@@ -83,6 +86,7 @@ class DependencySettingsCard(BaseCard):
             dict: Dictionary of displacy options
         """
         return {
+            'split_sentences': self.split_sentences,
             'fine_grained': self.fine_grained,
             'add_lemma': self.add_lemma,
             'collapse_punct': self.collapse_punct,
@@ -109,11 +113,12 @@ class DependencySettingsCard(BaseCard):
         card = ui.form_card(
             box=self.box,
             items=[
+                ui.toggle(name='split_sentences', label='Split Sentences', value=self.split_sentences, trigger=True),
                 ui.toggle(name='fine_grained', label='Fine Grained', value=self.fine_grained, trigger=True),
                 ui.toggle(name='add_lemma', label='Add Lemma', value=self.add_lemma, trigger=True),
                 ui.toggle(name='collapse_punct', label='Merge Punctuation', value=self.collapse_punct, trigger=True),
                 ui.toggle(name='collapse_phrases', label='Merge Phrases', value=self.collapse_phrases, trigger=True),
-                ui.toggle(name='compact', label='Compact', value=self.compact, trigger=True),
+                ui.toggle(name='compact', label='Make Compact', value=self.compact, trigger=True),
                 ui.inline(items=[
                     ui.textbox(name='color', label='Visualizer Color', value=self.color, trigger=True),
                     ui.textbox(name='bg', label='Background Color', value=self.bg, trigger=True)
@@ -207,7 +212,12 @@ class DependencyVisualizerCard(BaseCard):
         Args:
             q: Wave server
         """
-        dependency_html = displacy.render(self.doc, style='dep', options=self.options)
+        if self.options['split_sentences']:
+            visualize_doc = [sent.as_doc() for sent in self.doc.sents]
+        else:
+            visualize_doc = self.doc
+
+        dependency_html = displacy.render(visualize_doc, style='dep', options=self.options)
 
         card = ui.form_card(
             box=self.box,

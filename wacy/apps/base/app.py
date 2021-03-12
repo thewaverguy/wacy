@@ -67,9 +67,10 @@ class BaseApp:
         elif q.args.select_ents:
             copy_expando(q.args, q.client)
             await self._update_entity_cards(q)
-        elif any([q.args.fine_grained, q.args.add_lemma, q.args.collapse_punct, q.args.collapse_phrases,
-                  q.args.compact, q.args.color, q.args.bg, q.args.font, q.args.offset_x, q.args.arrow_stroke,
-                  q.args.arrow_width, q.args.arrow_spacing, q.args.word_spacing, q.args.word_distance]):
+        elif any([q.args.split_sentences, q.args.fine_grained, q.args.add_lemma, q.args.collapse_punct,
+                  q.args.collapse_phrases, q.args.compact, q.args.color, q.args.bg, q.args.font, q.args.offset_x,
+                  q.args.arrow_stroke, q.args.arrow_width, q.args.arrow_spacing, q.args.word_spacing,
+                  q.args.word_distance]):
             copy_expando(q.args, q.client)
             await self._update_dependency_cards(q)
 
@@ -89,6 +90,7 @@ class BaseApp:
 
         q.client.select_ents = sorted(list(set([x.label_ for x in q.client.doc.ents])))
 
+        q.client.split_sentences = self.dependency_settings_card.split_sentences
         q.client.fine_grained = self.dependency_settings_card.fine_grained
         q.client.add_lemma = self.dependency_settings_card.add_lemma
         q.client.collapse_punct = self.dependency_settings_card.collapse_punct
@@ -139,6 +141,7 @@ class BaseApp:
         await self.entity_visualizer_card.render(q)
 
     async def _update_dependency_cards(self, q: Q):
+        self.dependency_settings_card.split_sentences = q.client.split_sentences
         self.dependency_settings_card.fine_grained = q.client.fine_grained
         self.dependency_settings_card.add_lemma = q.client.add_lemma
         self.dependency_settings_card.collapse_punct = q.client.collapse_punct
