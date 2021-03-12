@@ -21,6 +21,8 @@ Building blocks for interactive and customizable [spaCy](http://spacy.io)-powere
 
 </div>
 
+![](https://raw.githubusercontent.com/thewaverguy/wacy/main/docs/source/_static/demo/demo.gif)
+
 ## 🚀 Installation
 
 **Python 3.6+ is required**
