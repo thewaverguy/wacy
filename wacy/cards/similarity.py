@@ -17,6 +17,7 @@ class SimilaritySettingsCard(BaseCard):
         box: str = 'similarity_settings',
         doc_1: Doc = None,
         doc_2: Doc = None,
+        color: str = 'mediumseagreen',
         title: str = 'Similarity Settings',
         commands: List[Command] = None
     ):
@@ -28,6 +29,7 @@ class SimilaritySettingsCard(BaseCard):
             box: Box of card
             doc_1: spaCy's Doc object of text 1
             doc_2: spaCy's Doc object of text 2
+            color: Color of icons
             title: Title of card
             commands: Commands of card
         """
@@ -35,6 +37,7 @@ class SimilaritySettingsCard(BaseCard):
 
         self.doc_1 = doc_1
         self.doc_2 = doc_2
+        self.color = color
         self.title = title
         self.commands = commands
 
@@ -63,7 +66,7 @@ class SimilaritySettingsCard(BaseCard):
                             label='Tokens 1',
                             value=f'{len(self.doc_1)}',
                             icon='TextField',
-                            icon_color='mediumseagreen'
+                            icon_color=self.color
                         ),
                         ui.stat(
                             label='Tokens 2',
@@ -77,7 +80,7 @@ class SimilaritySettingsCard(BaseCard):
                             label='Sentences 1',
                             value=f'{len(list(self.doc_1.sents))}',
                             icon='TextBox',
-                            icon_color='mediumseagreen'
+                            icon_color=self.color
                         ),
                         ui.stat(
                             label='Sentences 2',
@@ -91,7 +94,7 @@ class SimilaritySettingsCard(BaseCard):
                             label='Overall Similarity',
                             value=f'{round(text_similarity * 100)}%',
                             icon='VennDiagram',
-                            icon_color='mediumseagreen'
+                            icon_color=self.color
                         )
                     ]
                 )
@@ -113,6 +116,7 @@ class SimilarityVisualizerCard(BaseCard):
         box: str = 'similarity_visualizer',
         doc_1: Doc = None,
         doc_2: Doc = None,
+        color: str = 'mediumseagreen',
         title: str = 'Similarity Visualizer',
         commands: List[Command] = None
     ):
@@ -124,6 +128,7 @@ class SimilarityVisualizerCard(BaseCard):
             box: Box of card
             doc_1: spaCy's Doc object of text 1
             doc_2: spaCy's Doc object of text 2
+            color: Color of plots
             title: Title of card
             commands: Commands of card
         """
@@ -131,6 +136,7 @@ class SimilarityVisualizerCard(BaseCard):
 
         self.doc_1 = doc_1
         self.doc_2 = doc_2
+        self.color = color
         self.title = title
         self.commands = commands
 
@@ -154,7 +160,7 @@ class SimilarityVisualizerCard(BaseCard):
                 y='=token_2',
                 size='=similarity',
                 shape='circle',
-                fill_color='mediumseagreen'
+                fill_color=self.color
             )]),
             data=data(
                 fields=['token_1', 'token_2', 'similarity'],
@@ -183,7 +189,7 @@ class SimilarityVisualizerCard(BaseCard):
                 y='=sent_2',
                 size='=similarity',
                 shape='circle',
-                fill_color='mediumseagreen'
+                fill_color=self.color
             )]),
             data=data(
                 fields=['sent_1', 'sent_2', 'similarity'],
