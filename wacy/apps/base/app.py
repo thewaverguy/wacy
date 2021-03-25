@@ -5,7 +5,8 @@ from ...cards import (
     InputModelCard, InputTextCard,
     EntitySettingsCard, EntityVisualizerCard,
     DependencySettingsCard, DependencyVisualizerCard,
-    TokenAttributesCard
+    TokenAttributesCard,
+    SimilaritySettingsCard, SimilarityVisualizerCard
 )
 from ...utils import defaults
 
@@ -21,6 +22,8 @@ class BaseApp:
     _DEPENDENCY_SETTINGS_CARD = DependencySettingsCard()
     _DEPENDENCY_VISUALIZER_CARD = DependencyVisualizerCard()
     _TOKEN_ATTRIBUTES_CARD = TokenAttributesCard()
+    _SIMILARITY_SETTINGS_CARD = SimilaritySettingsCard()
+    _SIMILARITY_VISUALIZER_CARD = SimilarityVisualizerCard()
 
     def __init__(
         self,
@@ -33,7 +36,9 @@ class BaseApp:
         entity_visualizer_card: EntityVisualizerCard = None,
         dependency_settings_card: DependencySettingsCard = None,
         dependency_visualizer_card: DependencyVisualizerCard = None,
-        token_attributes_card: TokenAttributesCard = None
+        token_attributes_card: TokenAttributesCard = None,
+        similarity_settings_card: SimilaritySettingsCard = None,
+        similarity_visualizer_card: SimilarityVisualizerCard = None
     ):
         self.meta_card = meta_card if meta_card is not None else self._META_CARD
         self.header_card = header_card if header_card is not None else self._HEADER_CARD
@@ -50,29 +55,33 @@ class BaseApp:
             self._DEPENDENCY_VISUALIZER_CARD
         self.token_attributes_card = token_attributes_card if token_attributes_card is not None else \
             self._TOKEN_ATTRIBUTES_CARD
+        self.similarity_settings_card = similarity_settings_card if similarity_settings_card is not None else \
+            self._SIMILARITY_SETTINGS_CARD
+        self.similarity_visualizer_card = similarity_visualizer_card if similarity_visualizer_card is not None else \
+            self._SIMILARITY_VISUALIZER_CARD
 
     async def serve(self, q: Q) -> None:
+        copy_expando(q.args, q.client)
         if not q.client.client_initialized:
             await self._initialize_client(q)
             q.client.client_initialized = True
         elif q.args.input_model:
-            copy_expando(q.args, q.client)
             await self._load_model(q)
             await self._process_text(q)
             await self._update_all_cards(q)
         elif q.args.analyze_text:
-            copy_expando(q.args, q.client)
             await self._process_text(q)
             await self._update_all_cards(q)
         elif q.args.select_ents:
-            copy_expando(q.args, q.client)
             await self._update_entity_cards(q)
         elif any([q.args.split_sentences, q.args.fine_grained, q.args.add_lemma, q.args.collapse_punct,
                   q.args.collapse_phrases, q.args.compact, q.args.color, q.args.bg, q.args.font, q.args.offset_x,
                   q.args.arrow_stroke, q.args.arrow_width, q.args.arrow_spacing, q.args.word_spacing,
                   q.args.word_distance]):
-            copy_expando(q.args, q.client)
             await self._update_dependency_cards(q)
+        elif q.args.compare_texts:
+            await self._process_text(q)
+            await self._update_similarity_card(q)
 
     async def _initialize_client(self, q: Q):
         q.client.input_models = self.input_model_card.input_models
@@ -81,6 +90,8 @@ class BaseApp:
         await self._load_model(q)
 
         q.client.input_text = self.input_text_card.input_text
+        q.client.input_text_1 = self.input_text_card.input_text
+        q.client.input_text_2 = self.input_text_card.input_text
 
         await self._process_text(q)
 
@@ -115,12 +126,15 @@ class BaseApp:
     @staticmethod
     async def _process_text(q: Q):
         q.client.doc = q.client.model(q.client.input_text)
+        q.client.doc_1 = q.client.model(q.client.input_text_1)
+        q.client.doc_2 = q.client.model(q.client.input_text_2)
 
     async def _update_all_cards(self, q: Q):
         await self._update_input_cards(q)
         await self._update_entity_cards(q)
         await self._update_dependency_cards(q)
         await self._update_token_cards(q)
+        await self._update_similarity_card(q)
 
         await q.page.save()
 
@@ -165,3 +179,12 @@ class BaseApp:
     async def _update_token_cards(self, q: Q):
         self.token_attributes_card.doc = q.client.doc
         await self.token_attributes_card.render(q)
+
+    async def _update_similarity_card(self, q: Q):
+        self.similarity_settings_card.doc_1 = q.client.doc_1
+        self.similarity_settings_card.doc_2 = q.client.doc_2
+        await self.similarity_settings_card.render(q)
+
+        self.similarity_visualizer_card.doc_1 = q.client.doc_1
+        self.similarity_visualizer_card.doc_2 = q.client.doc_2
+        await self.similarity_visualizer_card.render(q)

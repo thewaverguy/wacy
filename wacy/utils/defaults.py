@@ -4,7 +4,7 @@ INPUT_MODELS = ['en_core_web_sm', 'en_core_web_md']
 INPUT_MODEL = 'en_core_web_sm'
 INPUT_TITLE = 'Simple, Quick and Interactive'
 INPUT_SUBTITLE = 'Select a spaCy model and enter the text to analyze'
-INPUT_TEXT = 'Matthew Honnibal and Ines Montani are the founders of Explosion.'
+INPUT_TEXT = 'Matthew Honnibal and Ines Montani are the founders of Explosion. spaCy & Wave are awesome!'
 
 META_CARD = ui.meta_card(
     box='',
@@ -28,7 +28,11 @@ META_CARD = ui.meta_card(
                         ui.zone(name='dependency_settings', size='30%'),
                         ui.zone(name='dependency_visualizer', size='70%')
                     ]),
-                    ui.zone(name='token_attributes')
+                    ui.zone(name='token_attributes'),
+                    ui.zone(name='similarity_row', direction='row', zones=[
+                        ui.zone(name='similarity_settings', size='30%'),
+                        ui.zone(name='similarity_visualizer', size='70%')
+                    ]),
                 ]),
                 ui.zone(name='footer')
             ]
