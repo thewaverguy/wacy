@@ -41,3 +41,12 @@ Token
 
 .. autoclass:: wacy.cards.token.TokenAttributesCard
    :members:
+
+Similarity
+----------
+
+.. autoclass:: wacy.cards.similarity.SimilaritySettingsCard
+   :members:
+
+.. autoclass:: wacy.cards.similarity.SimilarityVisualizerCard
+   :members:

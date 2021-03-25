@@ -270,3 +270,44 @@ Example using the BaseApp:
     wacy_app.dependency_visualizer_card.title = 'displacy plot'
     ...
 
+Customize Similarity Visualizer
+-------------------------------
+
+The similarity visualizer for the app can be customized using `similarity_setting_card` and `similarity_visualizer_card`:
+
+Example using new similarity cards:
+
+.. code-block:: python
+
+    from wacy.apps import BaseApp
+    from wacy.cards import SimilaritySettingsCard, SimilarityVisualizerCard
+
+    new_similarity_settings_card = SimilaritySettingsCard(
+        color='blue',
+        title='My custom title',
+        ...
+    )
+
+    new_similarity_visualizer_card = SimilarityVisualizerCard(
+        name='new visualizer card name',
+        title='similarity scatterplot',
+        ...
+    )
+
+    wacy_app = BaseApp(similarity_settings_card=new_similarity_settings_card, similarity_visualizer_card=new_similarity_visualizer_card)
+
+Example using the BaseApp:
+
+.. code-block:: python
+
+    from wacy.apps import BaseApp
+
+    wacy_app = BaseApp()
+    wacy_app.similarity_settings_card.color = 'blue'
+    wacy_app.similarity_settings_card.title = 'My custom title'
+    ...
+
+    wacy_app.similarity_visualizer_card.name = 'new visualizer card name'
+    wacy_app.similarity_visualizer_card.title = 'similarity scatterplot'
+    ...
+
